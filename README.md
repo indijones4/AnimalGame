@@ -5,7 +5,7 @@ Game for programming
 
 ### Game title
 _I'm not sure yet..._
-Summary of game’s story, focusing on gameplay
+_Summary of game’s story, focusing on gameplay_
 _What is the backstory to your game?  I hope the bad guy hasn’t kidnapped your girl!!!!  Having a deep, coherent backstory can help ground all of the elements of the game_
 
 ### Intended systems
@@ -31,7 +31,7 @@ _What milestones do you want to achieve by the MVP submission at the end of week
   *	Example puzzle
  
 ### Final Submission Milestones
-What milestones do you want to achieve by the final submission at the end of week 12
+_What milestones do you want to achieve by the final submission at the end of week 12_
 *	Complete Game Loop (Title Screen / Start Menu / Pause / Win / Lose / Restart / Quit)
 *	Polished controls
   *Should be refinement of MVP, not a substitute
