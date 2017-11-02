@@ -27,16 +27,16 @@ _Why should I play this game?_
 _What milestones do you want to achieve by the MVP submission at the end of week 8_
 *	Core player controls complete
 *	Core gameplay elements complete
-  *	Example of enemy AI / interaction
-  *	Example puzzle
+    *	Example of enemy AI / interaction
+    *	Example puzzle
  
 ### Final Submission Milestones
 _What milestones do you want to achieve by the final submission at the end of week 12_
 *	Complete Game Loop (Title Screen / Start Menu / Pause / Win / Lose / Restart / Quit)
 *	Polished controls
-  *Should be refinement of MVP, not a substitute
+    * Should be refinement of MVP, not a substitute
 *	Polished game mechanics
-  *Should be refinement of MVP, not a substitute
+    * Should be refinement of MVP, not a substitute
 *	Polished presentation
 *	Quality (3rd party) assets (including sound)
 *	Bug free
