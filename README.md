@@ -4,35 +4,38 @@ Game for programming
 ## Game Design Document
 
 ### Game title
-__Blank__
+__Baby Dungeon Maker__
 _Summary of game’s story, focusing on gameplay_
-_What is the backstory to your game?  I hope the bad guy hasn’t kidnapped your girl!!!!  Having a deep, coherent backstory can help ground all of the elements of the game_
+The player is in control of a baby boss monster in a RPG world which has to fight to survive, collect treasure, recruit some friends-I mean minions to help it, and try to find a place that could become its dungeoun.
 
 ### Intended systems
 _What can you do in the game?  How do enemies function?  What are the goals?  What are the mechanics?  What features do you need to implement?_
-Play as a animal. 
+
 
 ### Intended audience
-_Who is this game for?  Casual gamers or hardcore gamers?  Men, women, or both?  Indie gamers or AAA gamers?  It is critical to identify the intended audience in order to target that audience for playtesting and marketing_
-This game is for Casual gamers who like animals.
+This game is for Casual gamers who like creatures and fans of rpgs. It would be for both men and women but would probably apeal a bit more to women. Seeing as I'm not a AAA developer and the game is fairly unique it would be for Indie gamers.
 
 ### 2-3 similar games
 _Even the most unique and unusual games have similarities with existing games, even if the similarity is only how unusual the game is!  What games are most similar to this game.  Listing the specific features where appropriate_
-* Home Free
+* Dungeons 2 & 3 - playing as an evil protagonist in charge of other evil creatures
 
 ### Unique selling points
 _Is this game doing something that no other game has done before?  Is this game combining known features in a unique way?_
+This game will sort of be a role-reversal of typical rpgs.
 
 ### What’s enjoyable/positive about this game?
 _Why should I play this game?_
-Because you can play as an animal, and not some sort of anthro thing, a proper animal.
+Because you play an 'evil' character, that's trying _very_ hard to be evil in a nice interesting world with some fun characters and things happening.
 
 ### MVP Milestones
 _What milestones do you want to achieve by the MVP submission at the end of week 8_
 *	Core player controls complete
 *	Core gameplay elements complete
     *	Example of enemy AI / interaction
-    *	Example puzzle
+    *	Player interactions
+    * Ally AI
+    * 
+*  fun
 
 ### Final Submission Milestones
 _What milestones do you want to achieve by the final submission at the end of week 12_
