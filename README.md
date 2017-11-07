@@ -51,3 +51,4 @@ _What milestones do you want to achieve by the final submission at the end of we
 
 ### References
 _You need to list all references used to develop this game?  Online tutorials.  Book references.  Etc._
+[Follow code](https://answers.unity.com/questions/274809/how-to-make-enemy-chase-player-basic-ai.html)
