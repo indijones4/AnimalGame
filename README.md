@@ -3,14 +3,17 @@ Game for programming
 
 ## Game Design Document
 
-### Game title
-__Baby Dungeon Maker__
+### Baby Dungeon Boss
 _Summary of game’s story, focusing on gameplay_
 The player is in control of a baby boss monster in a RPG world which has to fight to survive, collect treasure, recruit some friends-I mean minions to help it, and try to find a place that could become its dungeoun.
 
 ### Intended systems
 _What can you do in the game?  How do enemies function?  What are the goals?  What are the mechanics?  What features do you need to implement?_
-
+Collect treasure of varying value
+Fight enemies
+Recruit/Befriend some monster allies
+Interact with some neutral monster/animal NPCs
+Return and secure tresure and allies in your temporay lair (a glorified nest/lean-to)
 
 ### Intended audience
 This game is for Casual gamers who like creatures and fans of rpgs. It would be for both men and women but would probably apeal a bit more to women. Seeing as I'm not a AAA developer and the game is fairly unique it would be for Indie gamers.
@@ -18,6 +21,7 @@ This game is for Casual gamers who like creatures and fans of rpgs. It would be 
 ### 2-3 similar games
 _Even the most unique and unusual games have similarities with existing games, even if the similarity is only how unusual the game is!  What games are most similar to this game.  Listing the specific features where appropriate_
 * Dungeons 2 & 3 - playing as an evil protagonist in charge of other evil creatures
+* Probably a few RPGs
 
 ### Unique selling points
 _Is this game doing something that no other game has done before?  Is this game combining known features in a unique way?_
@@ -34,8 +38,8 @@ _What milestones do you want to achieve by the MVP submission at the end of week
     *	Example of enemy AI / interaction
     *	Player interactions
     * Ally AI
-    * 
-*  fun
+    * Collection/Inventory of treasure
+*  Fun!
 
 ### Final Submission Milestones
 _What milestones do you want to achieve by the final submission at the end of week 12_
