@@ -9,7 +9,8 @@ public class PlayerScript : MonoBehaviour
 	public float jumpSpeed = 5;
 	public Rigidbody rb;
 	public Transform location;
-	public bool canDoubleJump = false;
+	//public bool canDoubleJump = false;
+
 
 	// Use this for initialization
 	void Start () 
@@ -37,19 +38,25 @@ public class PlayerScript : MonoBehaviour
 		{
 			transform.Translate (-speed * Time.deltaTime * Vector3.forward);
 		}
+
+
 		//jump code
-		 if (Input.GetKeyDown (KeyCode.Space)) 
+		if (Input.GetKeyDown (KeyCode.Space)) 
 		{
+			if (Physics.Raycast(transform.position, Vector3.down))
+			{
 			rb.velocity += Vector3.up * jumpSpeed;
 			//transform.Translate (jumpSpeed * Time.deltaTime * Vector3.up);
-			canDoubleJump = true;
+				//canDoubleJump = true;
+			}
+			//some code that allows a double jump but stop any extra jump
+			//else if (canDoubleJump == true) 
+			//{
+			//	rb.velocity += Vector3.up * jumpSpeed;
+			//	canDoubleJump = false;
+			//}	
 		}
-		//some code that allows a double jump but stop any extra jump
-		else if (Input.GetKeyDown (KeyCode.Space) && canDoubleJump == true) 
-		{
-			rb.velocity += Vector3.up * jumpSpeed;
-			canDoubleJump = false;
-		}	
+
 	}
 
 	//code for hitting things
@@ -57,6 +64,7 @@ public class PlayerScript : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag ("Pick Up")) 
 		{
+
 			other.gameObject.SetActive (false);
 		}
 	}

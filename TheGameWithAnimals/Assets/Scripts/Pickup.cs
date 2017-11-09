@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour {
 
+	public int value = 1;
+
 	// Update is called once per frame
 	void Update () 
 	{
