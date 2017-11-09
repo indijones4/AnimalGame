@@ -34,11 +34,15 @@ Because you play an 'evil' character, that's trying _very_ hard to be evil in a 
 ### MVP Milestones
 _What milestones do you want to achieve by the MVP submission at the end of week 8_
 *	Core player controls complete
+   * Double Jump because I like it
+   * WASD control
 *	Core gameplay elements complete
-    *	Example of enemy AI / interaction
-    *	Player interactions
-    * Ally AI
-    * Collection/Inventory of treasure
+    *	Example of enemy follow and attack
+    *	Player interactions Health, collection, 
+    * Ally get found, then follow, led to the Lair amd will then stay there
+    * Collection of treasure
+    * When all treasure is collected, the Ally led to the lair, and the player at the lair, the level/game is won
+    * When player runs out of health they die and the level/game is lost
 *  Fun!
 
 ### Final Submission Milestones
