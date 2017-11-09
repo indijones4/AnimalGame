@@ -39,7 +39,7 @@ _What milestones do you want to achieve by the MVP submission at the end of week
 *	Core gameplay elements complete
     *	Example of enemy follow and attack
     *	Player interactions Health, collection, 
-    * Ally get found, then follow, led to the Lair amd will then stay there
+    * Ally gets found, will then follow, led to the Lair and will then stay there
     * Collection of treasure
     * When all treasure is collected, the Ally led to the lair, and the player at the lair, the level/game is won
     * When player runs out of health they die and the level/game is lost
