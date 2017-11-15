@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour 
 {
+	//Declaring the many variables
 	public float speed = 1;
 	public float turnSpeed = 100;
 	public float jumpSpeed = 5;
 	public Rigidbody rb;
 	public Transform location;
-	//public bool canDoubleJump = false;
-
+	public int playerHealth = 5;
+	public int playerAttack = 1;
+	public bool canDoubleJump = false;
+	public int score = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -43,18 +46,24 @@ public class PlayerScript : MonoBehaviour
 		//jump code
 		if (Input.GetKeyDown (KeyCode.Space)) 
 		{
-			if (Physics.Raycast(transform.position, Vector3.down))
+			//declaring a variable for the raycast offset
+			float raycastOffset = 0.01f;
+			//Applying the offset and doing the Raycast 
+			if (Physics.Raycast(transform.position + raycastOffset * transform.up,
+				-transform.up,
+				2 * raycastOffset))
+			//if (Physics.Raycast(transform.position, Vector3.down))
 			{
-			rb.velocity += Vector3.up * jumpSpeed;
-			//transform.Translate (jumpSpeed * Time.deltaTime * Vector3.up);
-				//canDoubleJump = true;
+				rb.velocity += Vector3.up * jumpSpeed;
+				//transform.Translate (jumpSpeed * Time.deltaTime * Vector3.up);
+				canDoubleJump = true;
 			}
 			//some code that allows a double jump but stop any extra jump
-			//else if (canDoubleJump == true) 
-			//{
-			//	rb.velocity += Vector3.up * jumpSpeed;
-			//	canDoubleJump = false;
-			//}	
+			else if (canDoubleJump == true) 
+			{
+				rb.velocity += Vector3.up * jumpSpeed;
+				canDoubleJump = false;
+			}	
 		}
 
 	}
@@ -64,7 +73,7 @@ public class PlayerScript : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag ("Pick Up")) 
 		{
-
+			score = +1;
 			other.gameObject.SetActive (false);
 		}
 	}

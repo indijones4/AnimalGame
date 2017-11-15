@@ -10,6 +10,8 @@ public class EnemyAI : MonoBehaviour
 	public int maxDist = 10;
 	public int minAttackDist = 1;
 	public int maxAttackDist = 2;
+	public int enemyHealth = 1;
+	public int enemyAttack = 1;
 
 	// Use this for initialization
 	void Start () 

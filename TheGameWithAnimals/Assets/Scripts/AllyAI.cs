@@ -7,6 +7,8 @@ public class AllyAI : MonoBehaviour {
 	public Transform Player;
 	public int moveSpeed = 1;
 	public int minDist = 3;
+	public bool recruited = false;
+	public bool deposited = false;
 
 	// Use this for initialization
 	void Start () 
@@ -17,11 +19,25 @@ public class AllyAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		transform.LookAt (Player);
-
-		if (Vector3.Distance (transform.position, Player.position) >= minDist) 
+		if (recruited == true && deposited == false) 
 		{
-			transform.position += transform.forward * moveSpeed * Time.deltaTime;
+			transform.LookAt (Player);
+			if (Vector3.Distance (transform.position, Player.position) >= minDist) 
+			{
+				transform.position += transform.forward * moveSpeed * Time.deltaTime;
+			}
 		}
+	}
+
+	void OnTriggerEnter(Collider other) 
+	{
+		if(other.gameObject.CompareTag ("Player"))
+		{
+			recruited = true;
+		}
+		if(other.gameObject.CompareTag ("Lair"))
+		{
+			deposited = true;
+		}	
 	}
 }
