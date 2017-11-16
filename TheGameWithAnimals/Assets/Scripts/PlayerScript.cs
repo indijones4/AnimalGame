@@ -5,20 +5,24 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour 
 {
 	//Declaring the many variables
-	public float speed = 1;
+	public float speed = 20;
 	public float turnSpeed = 100;
-	public float jumpSpeed = 5;
+	public float jumpSpeed = 10;
 	public Rigidbody rb;
 	public Transform location;
 	public int playerHealth = 5;
 	public int playerAttack = 1;
 	public bool canDoubleJump = false;
 	public int score = 0;
+	public int finishscore = 1;
+	public int deposited = 0;
+	public int neededDeposited = 1;
 
 	// Use this for initialization
 	void Start () 
 	{
-		
+		rb = GetComponent<Rigidbody> ();
+		location = GetComponent<Transform> ();
 	}
 	
 	// Update is called once per frame
@@ -27,7 +31,8 @@ public class PlayerScript : MonoBehaviour
 		if (Input.GetKey (KeyCode.W)) 
 		{
 			transform.Translate (speed * Time.deltaTime * Vector3.forward);
-			//rb.velocity += Vector3.forward * speed;
+			//Vector3 move = new Vector3(transform.forward.x, 0, transform.forward.z);
+			//rb.velocity += move * speed;
 		}
 		if (Input.GetKey (KeyCode.D)) 
 		{
@@ -65,7 +70,10 @@ public class PlayerScript : MonoBehaviour
 				canDoubleJump = false;
 			}	
 		}
-
+		if (playerHealth <= 0) 
+		{
+			Destroy (gameObject);
+		}
 	}
 
 	//code for hitting things
@@ -76,5 +84,20 @@ public class PlayerScript : MonoBehaviour
 			score = +1;
 			other.gameObject.SetActive (false);
 		}
+		if(other.gameObject.CompareTag ("Lair") && score == finishscore && deposited == neededDeposited)
+		{
+			print ("YOU WIN");
+		}
+		if(other.gameObject.CompareTag ("EAttack"))
+		{
+			playerHealth -= 1;
+			//Vector3 move = new Vector3(transform.forward.x, 0, transform.forward.z);
+			//rb.velocity += move * -speed;
+		}
+	}
+
+	public void IncrementDeposited ()
+	{
+		deposited++;
 	}
 }

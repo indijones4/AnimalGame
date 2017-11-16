@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class AllyAI : MonoBehaviour {
 
-	public Transform Player;
-	public int moveSpeed = 1;
+	public PlayerScript player;
+	public float moveSpeed = 0.5f;
 	public int minDist = 3;
 	public bool recruited = false;
 	public bool deposited = false;
 
+	private Rigidbody rb;
+
 	// Use this for initialization
 	void Start () 
 	{
-		
+		rb = GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
@@ -21,10 +23,16 @@ public class AllyAI : MonoBehaviour {
 	{
 		if (recruited == true && deposited == false) 
 		{
-			transform.LookAt (Player);
-			if (Vector3.Distance (transform.position, Player.position) >= minDist) 
+			transform.LookAt (player.transform);
+			if (Vector3.Distance (transform.position, player.transform.position) >= minDist) 
 			{
-				transform.position += transform.forward * moveSpeed * Time.deltaTime;
+				//transform.position += transform.forward * moveSpeed * Time.deltaTime;
+				Vector3 move = new Vector3 (transform.forward.x, 0, transform.forward.z);
+				rb.velocity += move * moveSpeed;
+			} 
+			else 
+			{
+				rb.velocity = Vector3.zero;
 			}
 		}
 	}
@@ -38,6 +46,7 @@ public class AllyAI : MonoBehaviour {
 		if(other.gameObject.CompareTag ("Lair"))
 		{
 			deposited = true;
-		}	
+			player.IncrementDeposited();
+		}
 	}
 }
