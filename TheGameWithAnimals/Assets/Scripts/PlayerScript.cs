@@ -18,6 +18,8 @@ public class PlayerScript : MonoBehaviour
 	public int deposited = 0;
 	public int neededDeposited = 1;
 
+	public GameController control;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -47,6 +49,14 @@ public class PlayerScript : MonoBehaviour
 			transform.Translate (-speed * Time.deltaTime * Vector3.forward);
 		}
 
+		if (Input.GetMouseButtonDown(0)) 
+		{
+			transform.GetChild (2).gameObject.SetActive (true);
+		} 
+		else 
+		{
+			transform.GetChild (2).gameObject.SetActive (false);
+		}
 
 		//jump code
 		if (Input.GetKeyDown (KeyCode.Space)) 
@@ -54,9 +64,7 @@ public class PlayerScript : MonoBehaviour
 			//declaring a variable for the raycast offset
 			float raycastOffset = 0.01f;
 			//Applying the offset and doing the Raycast 
-			if (Physics.Raycast(transform.position + raycastOffset * transform.up,
-				-transform.up,
-				2 * raycastOffset))
+			if (Physics.Raycast(transform.position + raycastOffset * transform.up, -transform.up, 2 * raycastOffset))
 			//if (Physics.Raycast(transform.position, Vector3.down))
 			{
 				rb.velocity += Vector3.up * jumpSpeed;
@@ -73,6 +81,7 @@ public class PlayerScript : MonoBehaviour
 		if (playerHealth <= 0) 
 		{
 			Destroy (gameObject);
+			control.PlayerDied ();
 		}
 	}
 
@@ -81,12 +90,12 @@ public class PlayerScript : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag ("Pick Up")) 
 		{
-			score = +1;
+			score += 1;
 			other.gameObject.SetActive (false);
 		}
-		if(other.gameObject.CompareTag ("Lair") && score == finishscore && deposited == neededDeposited)
+		if(other.gameObject.CompareTag ("Lair") && score == finishscore && deposited >= neededDeposited)
 		{
-			print ("YOU WIN");
+			control.PlayerWon ();
 		}
 		if(other.gameObject.CompareTag ("EAttack"))
 		{

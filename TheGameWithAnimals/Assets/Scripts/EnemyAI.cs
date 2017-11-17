@@ -8,29 +8,28 @@ public class EnemyAI : MonoBehaviour
 	public float moveSpeed = 0.5f;
 	public int minDist = 2;
 	public int maxDist = 10;
-	public int minAttackDist = 1;
-	public int maxAttackDist = 2;
+	public int maxAttackDist = 3;
 	public int enemyHealth = 1;
 	public int enemyAttack = 1;
 
 	private Rigidbody rb;
 
-	public float timeBetweenMove = 1f;
-	private float timeBetweenMoveCounter;
-	public float timeToMove = 1f;
-	private float timeToMoveCounter;
+	//public float timeBetweenMove = 1f;
+	//private float timeBetweenMoveCounter;
+	//public float timeToMove = 1f;
+	//private float timeToMoveCounter;
 
-	private bool moving; 
+	//private bool moving; 
 
-	private Vector3 moveDirection;
+	//private Vector3 moveDirection;
 
 	// Use this for initialization
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody> ();
 
-		timeBetweenMoveCounter = Random.Range (timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
-		timeToMoveCounter = Random.Range (timeToMove * 0.75f, timeBetweenMove * 1.25f);
+		//timeBetweenMoveCounter = Random.Range (timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
+		//timeToMoveCounter = Random.Range (timeToMove * 0.75f, timeBetweenMove * 1.25f);
 	}
 	
 	// Update is called once per frame
@@ -43,10 +42,18 @@ public class EnemyAI : MonoBehaviour
 			if (Vector3.Distance (transform.position, Player.position) >= minDist) 
 			{
 				//transform.position += transform.forward * moveSpeed * Time.deltaTime;
-				Vector3 move = new Vector3(transform.forward.x, 0, transform.forward.z);
+				Vector3 move = new Vector3 (transform.forward.x, 0, transform.forward.z);
 				rb.velocity += move * moveSpeed;
 			}
+			if (Vector3.Distance (transform.position, Player.position) <= maxAttackDist) 
+			{
+				transform.GetChild (0).gameObject.SetActive (true);
+			}
 		} 
+		else 
+		{
+			transform.GetChild (0).gameObject.SetActive (false);
+		}
 		//else 
 		//{
 		//	//code for idle movement 

@@ -35,6 +35,10 @@ public class AllyAI : MonoBehaviour {
 				rb.velocity = Vector3.zero;
 			}
 		}
+		if (deposited == true) 
+		{
+			player.IncrementDeposited();
+		}
 	}
 
 	void OnTriggerEnter(Collider other) 
@@ -46,7 +50,6 @@ public class AllyAI : MonoBehaviour {
 		if(other.gameObject.CompareTag ("Lair"))
 		{
 			deposited = true;
-			player.IncrementDeposited();
 		}
 	}
 }
