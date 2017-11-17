@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - EAttack
   - Attack
+  - GameOverText
+  - WinText
   layers:
   - Default
   - TransparentFX
