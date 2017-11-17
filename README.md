@@ -4,7 +4,6 @@ Game for programming
 ## Game Design Document
 
 ### Baby Dungeon Boss
-_Summary of game’s story, focusing on gameplay_
 The player is in control of a baby boss monster in a RPG world which has to fight to survive, collect treasure, recruit some friends-I mean minions to help it, and try to find a place that could become its dungeoun.
 
 ### Intended systems
@@ -53,10 +52,11 @@ _What milestones do you want to achieve by the final submission at the end of we
 *	Polished game mechanics
     * Should be refinement of MVP, not a substitute
 *	Polished presentation
-*	Quality (3rd party) assets (including sound)
+*	Quality (3rd party) assets (including sound)(some jazzy tune)
 *	Bug free
 *	FUN!!!
 
 ### References
 _You need to list all references used to develop this game?  Online tutorials.  Book references.  Etc._
 * [Follow code](https://answers.unity.com/questions/274809/how-to-make-enemy-chase-player-basic-ai.html)
+* [setactivestuff](https://answers.unity.com/questions/894211/set-objects-child-to-activeinactive.html)
