@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
 	public int playerAttack = 1;
 	public bool canDoubleJump = false;
 	public int score = 0;
-	public int finishscore = 1;
+	public int finishscore = 17;
 	public int deposited = 0;
 	public int neededDeposited = 1;
 

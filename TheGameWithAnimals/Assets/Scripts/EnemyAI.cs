@@ -27,7 +27,8 @@ public class EnemyAI : MonoBehaviour
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody> ();
-
+		GameObject temp = GameObject.Find ("PlayerModel");
+		Player = temp.transform;
 		//timeBetweenMoveCounter = Random.Range (timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
 		//timeToMoveCounter = Random.Range (timeToMove * 0.75f, timeBetweenMove * 1.25f);
 	}
