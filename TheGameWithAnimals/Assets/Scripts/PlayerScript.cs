@@ -93,7 +93,7 @@ public class PlayerScript : MonoBehaviour
 			score += 1;
 			other.gameObject.SetActive (false);
 		}
-		if(other.gameObject.CompareTag ("Lair") && score == finishscore && deposited >= neededDeposited)
+		if(other.gameObject.CompareTag ("Lair") && score >= finishscore && deposited >= neededDeposited)
 		{
 			control.PlayerWon ();
 		}

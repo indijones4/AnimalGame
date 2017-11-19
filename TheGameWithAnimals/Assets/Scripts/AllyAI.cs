@@ -5,6 +5,7 @@ using UnityEngine;
 public class AllyAI : MonoBehaviour {
 
 	public PlayerScript player;
+	public Transform playermodel;
 	public float moveSpeed = 0.5f;
 	public int minDist = 3;
 	public bool recruited = false;
@@ -23,8 +24,8 @@ public class AllyAI : MonoBehaviour {
 	{
 		if (recruited == true && deposited == false) 
 		{
-			transform.LookAt (player.transform);
-			if (Vector3.Distance (transform.position, player.transform.position) >= minDist) 
+			transform.LookAt (playermodel.transform);
+			if (Vector3.Distance (transform.position, playermodel.transform.position) >= minDist) 
 			{
 				//transform.position += transform.forward * moveSpeed * Time.deltaTime;
 				Vector3 move = new Vector3 (transform.forward.x, 0, transform.forward.z);
@@ -38,6 +39,8 @@ public class AllyAI : MonoBehaviour {
 		if (deposited == true) 
 		{
 			player.IncrementDeposited();
+			this.enabled = false;
+
 		}
 	}
 
