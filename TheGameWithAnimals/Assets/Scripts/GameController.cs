@@ -9,8 +9,8 @@ public class GameController : MonoBehaviour {
 	//variables
 	public static GameController instance = null;
 	public bool gameOver = false;
-	Text dieText;
-	Text winText;
+	public Text dieText;
+	public Text winText;
 
 	//awake is called before start
 	void Awake () 
@@ -48,8 +48,11 @@ public class GameController : MonoBehaviour {
 	//a corountinue to be called in the playerscript for when the player dies
 	public void PlayerDied()
 	{
+		//GUIElement temp;
+		//temp = GameObject.FindGameObjectWithTag("GameOverText");
+		//dieText = temp.<Text>
 		gameOver = true;
-		dieText.text = "You died... \n press spacebar to try again";
+		//dieText.text = "You died... \n press spacebar to try again";
 		Time.timeScale = 0;
 	}
 
@@ -57,7 +60,7 @@ public class GameController : MonoBehaviour {
 	public void PlayerWon()
 	{
 		gameOver = true;
-		winText.text = "YOU WON! \n press spacebar to try again";
+		//winText.text = "YOU WON! \n press spacebar to try again";
 		Time.timeScale = 0;
 	}
 
