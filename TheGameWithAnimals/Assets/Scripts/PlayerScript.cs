@@ -80,7 +80,6 @@ public class PlayerScript : MonoBehaviour
 		}
 		if (playerHealth <= 0) 
 		{
-			Destroy (gameObject);
 			control.PlayerDied ();
 		}
 	}
