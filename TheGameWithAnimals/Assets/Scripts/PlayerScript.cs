@@ -18,6 +18,8 @@ public class PlayerScript : MonoBehaviour
 	public int deposited = 0;
 	public int neededDeposited = 1;
 
+	//private Animation dragonAni;
+
 	public GameController control;
 
 	// Use this for initialization
@@ -25,6 +27,7 @@ public class PlayerScript : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody> ();
 		location = GetComponent<Transform> ();
+		//dragonAni = GetComponentInChildren(Animation);
 	}
 	
 	// Update is called once per frame

@@ -48,7 +48,10 @@ public class EnemyAI : MonoBehaviour
 			}
 			if (Vector3.Distance (transform.position, Player.position) <= maxAttackDist) 
 			{
+				//yield return new WaitForSeconds (2);
 				transform.GetChild (0).gameObject.SetActive (true);
+				//yield return new WaitForSeconds (1);
+				//transform.GetChild (0).gameObject.SetActive (false);
 			}
 		} 
 		else 
