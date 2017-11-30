@@ -17,6 +17,8 @@ public class AllyAI : MonoBehaviour {
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody> ();
+		player = GameObject.FindWithTag("Player").GetComponent<PlayerScript>();
+		playermodel = GameObject.FindWithTag ("PlayerModel").transform;
 	}
 	
 	// Update is called once per frame

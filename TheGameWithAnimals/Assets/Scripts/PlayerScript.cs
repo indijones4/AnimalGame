@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour 
 {
 	//Declaring the many variables
@@ -18,6 +18,9 @@ public class PlayerScript : MonoBehaviour
 	public int deposited = 0;
 	public int neededDeposited = 1;
 
+	public Text HealthText;
+	public Text collect1;
+	public Text collect2;
 	//private Animation dragonAni;
 
 	public GameController control;
@@ -27,6 +30,7 @@ public class PlayerScript : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody> ();
 		location = GetComponent<Transform> ();
+		HealthText.text = "Health = " + playerHealth;
 		//dragonAni = GetComponentInChildren(Animation);
 	}
 	
@@ -93,6 +97,7 @@ public class PlayerScript : MonoBehaviour
 		if (other.gameObject.CompareTag ("Pick Up")) 
 		{
 			score += 1;
+			//collect1.text = "You need " finishscore - score " more treasure";
 			other.gameObject.SetActive (false);
 		}
 		if(other.gameObject.CompareTag ("Lair") && score >= finishscore && deposited >= neededDeposited)
@@ -102,6 +107,7 @@ public class PlayerScript : MonoBehaviour
 		if(other.gameObject.CompareTag ("EAttack"))
 		{
 			playerHealth -= 1;
+			HealthText.text = "Health = " + playerHealth;
 			//Vector3 move = new Vector3(transform.forward.x, 0, transform.forward.z);
 			//rb.velocity += move * -speed;
 		}
@@ -110,5 +116,6 @@ public class PlayerScript : MonoBehaviour
 	public void IncrementDeposited ()
 	{
 		deposited++;
+		//collect2.text = "You need " neededDeposited - deposited " more friends";
 	}
 }
