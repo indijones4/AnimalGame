@@ -31,6 +31,8 @@ public class PlayerScript : MonoBehaviour
 		rb = GetComponent<Rigidbody> ();
 		location = GetComponent<Transform> ();
 		HealthText.text = "Health = " + playerHealth;
+		collect1.text = "You need " + (finishscore - score) + " more treasure";
+		collect2.text = "You need " + (neededDeposited - deposited) + " more friends";
 		//dragonAni = GetComponentInChildren(Animation);
 	}
 	
@@ -97,7 +99,7 @@ public class PlayerScript : MonoBehaviour
 		if (other.gameObject.CompareTag ("Pick Up")) 
 		{
 			score += 1;
-			//collect1.text = "You need " finishscore - score " more treasure";
+			collect1.text = "You need " + (finishscore - score) + " more treasure";
 			other.gameObject.SetActive (false);
 		}
 		if(other.gameObject.CompareTag ("Lair") && score >= finishscore && deposited >= neededDeposited)
@@ -116,6 +118,6 @@ public class PlayerScript : MonoBehaviour
 	public void IncrementDeposited ()
 	{
 		deposited++;
-		//collect2.text = "You need " neededDeposited - deposited " more friends";
+		collect2.text = "You need " + (neededDeposited - deposited) + " more friends";
 	}
 }
