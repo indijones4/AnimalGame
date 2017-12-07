@@ -12,6 +12,7 @@ TagManager:
   - GameOverText
   - WinText
   - PlayerModel
+  - Control
   layers:
   - Default
   - TransparentFX

@@ -23,7 +23,7 @@ public class PlayerScript : MonoBehaviour
 	public Text collect2;
 	//private Animation dragonAni;
 
-	public GameController control;
+	private GameController control;
 
 	// Use this for initialization
 	void Start () 
@@ -33,6 +33,7 @@ public class PlayerScript : MonoBehaviour
 		HealthText.text = "Health = " + playerHealth;
 		collect1.text = "You need " + (finishscore - score) + " more treasure";
 		collect2.text = "You need " + (neededDeposited - deposited) + " more friends";
+		control = GameObject.FindWithTag ("Control").GetComponent<GameController> ();
 		//dragonAni = GetComponentInChildren(Animation);
 	}
 	
