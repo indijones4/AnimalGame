@@ -75,7 +75,10 @@ public class GameController : MonoBehaviour {
 	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
 	{
 		//fetching the texts by searching for their tags
+		//if ()
+		//{
 		dieText = GameObject.FindGameObjectWithTag ("GameOverText").GetComponent<Text>();
 		winText = GameObject.FindGameObjectWithTag ("WinText").GetComponent<Text>();
+		//}
 	}
 }
