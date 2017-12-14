@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
 	public int enemyAttack = 1;
 
 	private Rigidbody rb;
+	private Animator animate;
 
 	//public float timeBetweenMove = 1f;
 	//private float timeBetweenMoveCounter;
@@ -27,6 +28,7 @@ public class EnemyAI : MonoBehaviour
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody> ();
+		animate = GetComponentInChildren<Animator> ();
 		Player = GameObject.FindWithTag("PlayerModel").transform;
 		//timeBetweenMoveCounter = Random.Range (timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
 		//timeToMoveCounter = Random.Range (timeToMove * 0.75f, timeBetweenMove * 1.25f);
@@ -38,7 +40,7 @@ public class EnemyAI : MonoBehaviour
 		if (Vector3.Distance (transform.position, Player.position) <= maxDist) 
 		{
 			transform.LookAt (Player);
-
+			animate.SetBool ("Move", true);
 			if (Vector3.Distance (transform.position, Player.position) >= minDist) 
 			{
 				//transform.position += transform.forward * moveSpeed * Time.deltaTime;
@@ -48,15 +50,22 @@ public class EnemyAI : MonoBehaviour
 			if (Vector3.Distance (transform.position, Player.position) <= maxAttackDist) 
 			{
 				//yield return new WaitForSeconds (2);
+				animate.SetTrigger ("Attack");
 				transform.GetChild (0).gameObject.SetActive (true);
 				//yield return new WaitForSeconds (1);
 				//transform.GetChild (0).gameObject.SetActive (false);
 			}
-		} 
+			else 
+			{
+				animate.SetTrigger ("Attack");
+				transform.GetChild (0).gameObject.SetActive (false);
+			}
+		}
 		else 
 		{
-			transform.GetChild (0).gameObject.SetActive (false);
+			animate.SetBool ("Move", false);
 		}
+
 		//else 
 		//{
 		//	//code for idle movement 
