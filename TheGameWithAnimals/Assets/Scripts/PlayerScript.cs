@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
 	public Text HealthText;
 	public Text collect1;
 	public Text collect2;
-	//private Animation dragonAni;
+	private Animator animate;
 
 	private GameController control;
 
@@ -34,7 +34,7 @@ public class PlayerScript : MonoBehaviour
 		collect1.text = "You need " + (finishscore - score) + " more treasure";
 		collect2.text = "You need " + (neededDeposited - deposited) + " more friends";
 		control = GameObject.FindWithTag ("Control").GetComponent<GameController> ();
-		//dragonAni = GetComponentInChildren(Animation);
+		animate = GetComponentInChildren<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -42,9 +42,14 @@ public class PlayerScript : MonoBehaviour
 	{
 		if (Input.GetKey (KeyCode.W)) 
 		{
+			animate.SetBool ("Move", true);
 			transform.Translate (speed * Time.deltaTime * Vector3.forward);
 			//Vector3 move = new Vector3(transform.forward.x, 0, transform.forward.z);
 			//rb.velocity += move * speed;
+		} 
+		else 
+		{
+			animate.SetBool ("Move", false);
 		}
 		if (Input.GetKey (KeyCode.D)) 
 		{
@@ -61,6 +66,7 @@ public class PlayerScript : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0)) 
 		{
+			animate.SetTrigger ("Attack");
 			transform.GetChild (2).gameObject.SetActive (true);
 		} 
 		else 
@@ -90,6 +96,7 @@ public class PlayerScript : MonoBehaviour
 		}
 		if (playerHealth <= 0) 
 		{
+			animate.SetTrigger("Die");
 			control.PlayerDied ();
 		}
 	}
@@ -109,6 +116,7 @@ public class PlayerScript : MonoBehaviour
 		}
 		if(other.gameObject.CompareTag ("EAttack"))
 		{
+			animate.SetTrigger ("TakeDamge");
 			playerHealth -= 1;
 			HealthText.text = "Health = " + playerHealth;
 			//Vector3 move = new Vector3(transform.forward.x, 0, transform.forward.z);
